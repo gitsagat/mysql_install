@@ -19,6 +19,7 @@ echo "Reload privilege tables now? (Press y|Y for Yes, any other key for No) : [
 sudo mysql_secure_installation
 
 echo "mysql -u root -p criar o usuário CREATE USER 'aredecrm'@'%' IDENTIFIED BY 'MinhaSenha'"
+echo "sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf"
 echo "add my.cnf [mysqld]"
 echo "max_allowed_packet=32M"
 echo "bind-address    = 0.0.0.0"
