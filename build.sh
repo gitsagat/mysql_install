@@ -20,12 +20,15 @@ echo "Reload privilege tables now? (Press y|Y for Yes, any other key for No) : [
 sudo mysql_secure_installation
 
 echo "mysql -u root -p criar o usuário CREATE USER 'aredecrm'@'%' IDENTIFIED BY 'MinhaSenha'"
+echo "GRANT CREATE, CREATE VIEW, SHOW VIEW,ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'aredecrm'@'%' WITH GRANT OPTION;"
+echo "FLUSH PRIVILEGES;"
 echo "sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf"
 echo "add my.cnf [mysqld]"
+echo "character-set-server=utf8"
+echo "collation-server=utf8_general_ci"
 echo "max_allowed_packet=32M"
 echo "bind-address    = 0.0.0.0"
 echo "sql-mode = "STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,ALLOW_INVALID_DATES""
-echo "sudo systemctl restart mysql"
 echo "sudo systemctl restart mysql"
 echo "sudo systemctl stop mysql"
 echo "sudo systemctl status mysql"
